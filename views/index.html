@@ -14,12 +14,38 @@
       integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
       crossorigin="anonymous"
     />
-    <title>Hello, world!</title>
+    <title>Quiz</title>
+    <style>
+      .vertical_center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+    </style>
 
     
   </head>
-  <body>
-    <h1>Hello, world!</h1>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: white">
+    <a class="navbar-brand" href="#">Quiz Game</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+    </div>
+  </nav>
+
+
+
+  <body style="background-color: black;">
+    
     <script type="text/JavaScript">
       console.log("called");
          const quiz=[{ques:"Which among the following teams has played World Cup (Cricket) final match maximum number of times, but could not win a single trophy?",opt:{a:"England",b:"West Indies",c:"Sri Lanka",d:"South Africa"},ans:"a"}];
@@ -37,27 +63,44 @@
 
            if(opt1.checked==true){
              if(quiz[i].ans=="a")
+             {
              document.getElementById("result").innerHTML="Correct";
-             else
+             document.getElementById("result").style.background="green";
+             }
+             else{
              document.getElementById("result").innerHTML="Wrong";
+             document.getElementById("result").style.background="red";
+             }
            }
            if(opt2.checked==true){
-             if(quiz[i].ans=="b")
+             if(quiz[i].ans=="b"){
              document.getElementById("result").innerHTML="Correct";
-             else
+             document.getElementById("result").style.background="green";
+             }
+             else{
              document.getElementById("result").innerHTML="Wrong";
+             document.getElementById("result").style.background="red";
+             }
            }
            if(opt3.checked==true){
-             if(quiz[i].ans=="c")
+             if(quiz[i].ans=="c"){
              document.getElementById("result").innerHTML="Correct";
-             else
+             document.getElementById("result").style.background="green";
+             }
+             else{
              document.getElementById("result").innerHTML="Wrong";
+             document.getElementById("result").style.background="red";
+             }
            }
            if(opt4.checked==true){
-             if(quiz[i].ans=="d")
+             if(quiz[i].ans=="d"){
              document.getElementById("result").innerHTML="Correct";
-             else
+             document.getElementById("result").style.background="green";
+             }
+             else{
              document.getElementById("result").innerHTML="Wrong";
+             document.getElementById("result").style.background="red";
+             }
            }
            
            
@@ -136,41 +179,50 @@
              fun1();
                 
     </script>
+
+    <div class="container vertical_center border border-success rounded-lg" style="padding: 50px; background-color:white;">
+
+
     <form>
       <div class="form-group">
-        <div id="result"></div>
-        <div id="ques"></div>
+        <h3><span class="badge badge-secondary" id="result"></span></h3>
+        
+        <div id="ques" style="font-weight: bold; font-size: large;">Which among the following teams has played World Cup (Cricket) final match maximum number of times, but could not win a single trophy?</div>
         <br />
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="opt1" />
-          <div id="option1"></div>
+          <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt1" />
+          <div id="option1">England</div>
          
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="opt2" />
-          <div id="option2"></div>
+          <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt2" />
+          <div id="option2">West Indies</div>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="opt3" />
-          <div id="option3"></div>
+          <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt3" />
+          <div id="option3">Sri Lanka</div>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="checkbox" id="opt4" />
-          <div id="option4"></div>
+          <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt4" />
+          <div id="option4">South Africa</div>
         </div>
-        <div>
-          <input class="btn btn-primary"  id="prev" value="Previous" onclick="fun1()" disabled/>
-        </div>
+        <div class="row" style="padding: 20px; margin: 20px;">
+      
+          <input class="btn btn-dark"  id="prev" value="Previous" onclick="fun1()" style="margin: 20px;" disabled/>
+        
 
-        <div>
-          <input class="btn btn-primary"  id="next" value="Next" onclick="fun2()" />
-        </div>
+       
+          
+   
 
-        <div>
-          <input class="btn btn-primary"  id="next1" value="Check" onclick="answer()" />
+       
+          <input class="btn btn-dark"  id="next1" value="Check" onclick="answer()" style="margin: 20px;" />
+          <input class="btn btn-dark"  id="next" value="Next" onclick="fun2()" style="margin: 20px;" />
+        
         </div>
       </div>
     </form>
+    </div>
 
     <!-- Optional JavaScript; choose one of the two! -->
 
