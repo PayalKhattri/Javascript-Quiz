@@ -34,12 +34,12 @@
       <span class="navbar-toggler-icon"></span>
     </button>
   
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-    </div>
+    </div> -->
   </nav>
 
 
@@ -51,7 +51,34 @@
          const quiz=[{ques:"Which among the following teams has played World Cup (Cricket) final match maximum number of times, but could not win a single trophy?",opt:{a:"England",b:"West Indies",c:"Sri Lanka",d:"South Africa"},ans:"a"}];
          quiz.push({ques:"Which among the following planets has rings?",opt:{a:"Venus",b:"Saturn",c:"Jupiter",d:"Earth"},ans:"b"});
          quiz.push({ques:"The book, ‘Let’s Kill Gandhi,’ was written by …",opt:{a:"Arundhati Subramaniam",b:"Amish Tripathi",c:"P. Chidambaram",d:"Tushar Gandhi"},ans:"d"});
+         quiz.push({ques:"Fort William is located in …………",opt:{a:"Patna",b:"Kolkata",c:"Aurangabad",d:"Allahabad"},ans:"b"});
+         quiz.push({ques:"Which among the following stadiums is known for Hockey?",opt:{a:"Jawaharlal Nehru Stadium",b:" Indraprastha Stadium",c:" Shivaji Stadium",d:"Ambedkar Stadium"},ans:"c"});
+         quiz.push({ques:"Panama Canal connects …",opt:{a:"Atlantic Ocean and Mediterranean Sea",b:"Atlantic Ocean and Pacific Ocean",c:"Atlantic Ocean and Indian Ocean",d:"Pacific Ocean and Indian Ocean"},ans:"b"});
+         quiz.push({ques:"The headquarters of United Nations Research Institute for Social Development (UNRISD) is located in …",opt:{a:"New York City",b:"Geneva",c:"Rome",d:"Washington DC"},ans:"b"});
+         quiz.push({ques:"Armed Force Medical College is located in …",opt:{a:"Kolkata",b:"Dundigul",c:"Gopalpur",d:"Pune"},ans:"d"});
+         quiz.push({ques:"The headquarters of World Trade Organisation (WTO) is located in …",opt:{a:"Lynos",b:"Geneva",c:"Vienna",d:"Gland"},ans:"b"});
+         quiz.push({ques:"The headquarters of International Monetary Fund (IMF) is located in …",opt:{a:"New York City",b:"Geneva",c:"Rome",d:"Washington DC"},ans:"d"});
+        
          var i=0;
+         var ans=[];
+         for(var j=0;j<quiz.length;j++)
+         {
+           ans.push(0)
+         }
+
+         function getScore()
+         {
+           var score=0;
+           for(var j=0;j<quiz.length;j++)
+          {
+            console.log(ans[i]);
+           score=score+ans[i];
+          }
+          // document.getElementById("score").innerText="Score "+score+"/"+quiz.length;
+
+         }
+
+       
 
          function answer()
          {
@@ -64,40 +91,48 @@
            if(opt1.checked==true){
              if(quiz[i].ans=="a")
              {
+              ans[i]=1;
              document.getElementById("result").innerHTML="Correct";
              document.getElementById("result").style.background="green";
              }
              else{
+              ans[i]=0;
              document.getElementById("result").innerHTML="Wrong";
              document.getElementById("result").style.background="red";
              }
            }
            if(opt2.checked==true){
              if(quiz[i].ans=="b"){
+              ans[i]=1;
              document.getElementById("result").innerHTML="Correct";
              document.getElementById("result").style.background="green";
              }
              else{
+              ans[i]=0;
              document.getElementById("result").innerHTML="Wrong";
              document.getElementById("result").style.background="red";
              }
            }
            if(opt3.checked==true){
              if(quiz[i].ans=="c"){
+              ans[i]=1;
              document.getElementById("result").innerHTML="Correct";
              document.getElementById("result").style.background="green";
              }
              else{
+              ans[i]=0;
              document.getElementById("result").innerHTML="Wrong";
              document.getElementById("result").style.background="red";
              }
            }
            if(opt4.checked==true){
              if(quiz[i].ans=="d"){
+              ans[i]=1;
              document.getElementById("result").innerHTML="Correct";
              document.getElementById("result").style.background="green";
              }
              else{
+              ans[i]=0;
              document.getElementById("result").innerHTML="Wrong";
              document.getElementById("result").style.background="red";
              }
@@ -146,6 +181,9 @@
              bnext.disabled=true;
              else
              bnext.disabled=false;
+            
+             answer();
+             getScore();
 
 
             
@@ -172,18 +210,23 @@
              bnext.disabled=true;
              else
              bnext.disabled=false;
-
-
             
+            
+
+
+            answer();
+            getScore();
              }
              fun1();
                 
     </script>
 
     <div class="container vertical_center border border-success rounded-lg" style="padding: 50px; background-color:white;">
+      <div class="text-right"><h3><span class="badge badge-secondary" id="score"></span></h3></div>
 
 
     <form>
+     
       <div class="form-group">
         <h3><span class="badge badge-secondary" id="result"></span></h3>
         
@@ -206,15 +249,18 @@
           <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt4" />
           <div id="option4">South Africa</div>
         </div>
-        <div class="row" style="padding: 20px; margin: auto; width: 50%; ">
-          <button type="button" class="btn btn-dark" id="prev" onclick="fun1()" style="margin: 20px;" disabled>Previous</button>
+        <br/>
+        <br/>
+        
+        <div class="btn-group d-flex align-items-center">
+          <button type="button" class="btn btn-dark " id="prev" onclick="fun1()" style="margin: 20px;" disabled>Previous</button>
           <button type="button" class="btn btn-dark" id="next1" value="Check" onclick="answer()" style="margin: 20px;" >Check</button>
       
         
           <button type="button" class="btn btn-dark" id="next" value="Next" onclick="fun2()" style="margin: 20px;">Next</button>
+      </div>
       
-      
-        </div>
+        
       </div>
     </form>
     </div>
