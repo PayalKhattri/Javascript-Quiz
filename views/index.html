@@ -206,19 +206,14 @@
           <input class="form-check-input" name="inlineRadioOptions" type="radio" id="opt4" />
           <div id="option4">South Africa</div>
         </div>
-        <div class="row" style="padding: 20px; margin: 20px;">
+        <div class="row" style="padding: 20px; margin: auto; width: 50%; ">
+          <button type="button" class="btn btn-dark" id="prev" onclick="fun1()" style="margin: 20px;" disabled>Previous</button>
+          <button type="button" class="btn btn-dark" id="next1" value="Check" onclick="answer()" style="margin: 20px;" >Check</button>
       
-          <input class="btn btn-dark"  id="prev" value="Previous" onclick="fun1()" style="margin: 20px;" disabled/>
         
-
-       
-          
-   
-
-       
-          <input class="btn btn-dark"  id="next1" value="Check" onclick="answer()" style="margin: 20px;" />
-          <input class="btn btn-dark"  id="next" value="Next" onclick="fun2()" style="margin: 20px;" />
-        
+          <button type="button" class="btn btn-dark" id="next" value="Next" onclick="fun2()" style="margin: 20px;">Next</button>
+      
+      
         </div>
       </div>
     </form>
